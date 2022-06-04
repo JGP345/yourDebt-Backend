@@ -17,14 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from yourdebt import views
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 router = routers.DefaultRouter()
 router.register(r'opendebt', views.OpenDebtView, 'opendebt')
 router.register(r'closedebt', views.CloseDebtView, 'closedebt')
 router.register(r'mortgage', views.MortgageView, 'mortgage')
+router.register(r'user', views.UserView, 'user')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair')
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]
