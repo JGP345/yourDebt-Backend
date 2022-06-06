@@ -14,17 +14,14 @@ class OpenDebtView(viewsets.ModelViewSet):
     serializer_class = OpenDebtSerializer
     queryset = OpenDebt.objects.all()
     permission_classes= [IsAuthenticated]
-    authentication_classes = (authentication.JWTAuthentication)
 class CloseDebtView(viewsets.ModelViewSet):
     serializer_class = CloseDebtSerializer
     queryset = CloseDebt.objects.all()
     permission_classes= [IsAuthenticated]
-    authentication_classes = (authentication.JWTAuthentication)
 class MortgageView(viewsets.ModelViewSet):
     serializer_class = MortgageSerializer
     queryset = Mortgage.objects.all()
     permission_classes= [IsAuthenticated]
-    authentication_classes = (authentication.JWTAuthentication)
 class UserView(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -32,5 +29,4 @@ class UserView(viewsets.ModelViewSet):
 class GroupView(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     queryset = Group.objects.all()
-    authentication_classes = (authentication.JWTAuthentication)
 # Create your views here.
